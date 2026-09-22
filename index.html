@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiran Kumar JS - Millwork & Interior Designer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -31,7 +34,7 @@
         body {
             background: var(--bg-primary);
             color: var(--text-primary);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -206,7 +209,7 @@
             text-transform: uppercase;
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
-            animation-delay: 0.3s;
+            animation-delay: 0s;
         }
 
         .by-tag{
@@ -243,9 +246,10 @@
 
         .profile-content {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
+            grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.5fr);
+            gap: clamp(2rem, 5vw, 4rem);
             align-items: center;
+            width: 100%;
         }
 
         .profile-image-wrapper {
@@ -267,6 +271,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            min-width: 0;
         }
 
         .profile-overview {
@@ -303,8 +308,9 @@
 
         .software-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(0.75rem, 2vw, 1.5rem);
+            width: 100%;
         }
 
         .software-item {
@@ -318,11 +324,30 @@
         .software-icon {
             width: 60px;
             height: 60px;
+            flex: 0 0 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
             background: white;
+            overflow: hidden;
+        }
+
+        .software-icon img {
+            display: block;
+            width: 60px;
+            height: 60px;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .software-icon i {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            font-style: normal;
         }
 
         .software-name {
@@ -551,9 +576,16 @@
         .gallery-technical img,
         .gallery-view img {
             width: 100%;
+            max-width: 100%;
             height: 100%;
             object-fit: cover;
             background: #f5f5f5;
+            display: block;
+        }
+
+        /* Prevent any image from ever exceeding its containing box */
+        img {
+            max-width: 100%;
         }
 
         .image-caption {
@@ -703,6 +735,38 @@
         }
 
         /* ============ RESPONSIVE ============ */
+
+        /* Laptops and smaller desktop screens */
+        @media (max-width: 1000px) and (min-width: 769px) {
+            .profile-content {
+                grid-template-columns: minmax(180px, 0.75fr) minmax(0, 1.6fr);
+                gap: 2.5rem;
+            }
+
+            .profile-image {
+                width: clamp(150px, 18vw, 210px);
+                height: clamp(150px, 18vw, 210px);
+            }
+
+            .software-grid {
+                gap: 0.75rem;
+            }
+
+            .software-icon,
+            .software-icon img {
+                width: 54px;
+                height: 54px;
+            }
+
+            .software-icon {
+                flex-basis: 54px;
+            }
+
+            .software-name {
+                font-size: 0.78rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 1.5rem;
@@ -710,7 +774,27 @@
 
             .profile-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
+                justify-items: center;
+            }
+
+            .profile-right {
+                width: 100%;
+                max-width: 650px;
+            }
+
+            .profile-overview {
+                text-align: center;
+            }
+
+            .software-section {
+                width: 100%;
+            }
+
+            .software-icon,
+            .software-icon img {
+                width: 60px;
+                height: 60px;
             }
 
             .software-grid {
@@ -792,6 +876,7 @@
             position: absolute;
             inset: 0;
             width: 100%;
+            max-width: none;
             height: 100%;
             object-fit: cover;
             object-position: center center;
@@ -889,7 +974,7 @@
         <div class="profile-wrapper">
             <div class="profile-content">
                 <div class="profile-image-wrapper reveal">
-                    <img src="src\profile\kiran_profile.jpeg" alt="Kiran Kumar JS" class="profile-image">
+                    <img src="src/profile/kiran_profile.jpeg" alt="Kiran Kumar JS" class="profile-image">
                 </div>
                 <div class="profile-right">
                     <!-- Overview Box -->
@@ -904,25 +989,25 @@
                         <div class="software-grid">
                             <div class="software-item">
                                 <div class="software-icon">
-                                    <i><img src="src\assets\icons\cabinet_vision_icon.jpeg" alt="cabinet_vision_icon"></i>
+                                    <i><img src="src/assets/icons\cabinet_vision_icon.jpeg" alt="cabinet_vision_icon"></i>
                                 </div>
                                 <div class="software-name">Cabinet Vision</div>
                             </div>
                             <div class="software-item">
                                 <div class="software-icon">
-                                    <i><img src="src\assets\icons\autocad_icon.jpeg" alt="autocad_icon"></i>
+                                    <i><img src="src/assets/icons\autocad_icon.jpeg" alt="autocad_icon"></i>
                                 </div>
                                 <div class="software-name">AutoCAD</div>
                             </div>
                             <div class="software-item">
                                 <div class="software-icon">
-                                    <i><img src="src\assets\icons\sketchup_icon.jpeg" alt="sketchup_icon"></i>
+                                    <i><img src="src/assets/icons\sketchup_icon.jpeg" alt="sketchup_icon"></i>
                                 </div>
                                 <div class="software-name">SketchUp</div>
                             </div>
                             <div class="software-item">
                                 <div class="software-icon">
-                                    <i><img src="src\assets\icons\vray_icon.jpeg" alt="vray_icon"></i>
+                                    <i><img src="src/assets/icons\vray_icon.jpeg" alt="vray_icon"></i>
                                 </div>
                                 <div class="software-name">V-Ray</div>
                             </div>
