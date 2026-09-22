@@ -1,2 +1,2 @@
 # Portfolio
-Thhis repo contains my portfolio
+This repo contains my portfolio
