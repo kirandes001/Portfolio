@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Designer Portfolio</title>
+    <style>
+        :root {
+            --primary: #1b4332;
+            --secondary: #2d6a4f;
+            --accent: #40916c;
+            --light-bg: #d8f3dc;
+            --text: #1b4332;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--white); /* ADD THIS: Gives the base page a white canvas */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: transparent; /* CHANGED from var(--white) */
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem 0 0.5rem 0; /* Adjusted padding to look balanced */
+            text-align: center;
+            /* Removed sticky positioning and box-shadow from here */
+        }
+        .sticky-nav {
+            background-color: var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.5rem 0 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .sticky-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sticky-nav ul li {
+            display: inline;
+            margin: 0 1.5rem;
+        }
+
+        .sticky-nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .sticky-nav ul li a:hover {
+            color: var(--light-bg);
+        }
+
+        .animate {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.9rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--light-bg);
+        }
+
+        #hero {
+            background: linear-gradient(rgba(27, 67, 50, 0.7), rgba(27, 67, 50, 0.7)), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        #hero p {
+            font-size: 1.4em;
+            animation: fadeInUp 1.5s ease forwards;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+
+        #portfolio {
+            background-color: transparent; /* CHANGED from var(--white) */
+        }
+
+        .project-section {
+            min-height: auto;
+            display: block;
+            padding: 100px 5% !important;
+            box-sizing: border-box;
+            background-color: transparent; /* CHANGED from var(--white) */
+            border-bottom: 2px solid var(--light-bg);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            background-color: var(--light-bg);
+            padding: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-content {
+            padding: 20px;
+        }
+
+        .portfolio-content h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+
+        #about {
+            background-color: transparent; /* CHANGED from var(--light-bg) */
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+       #contact {
+            text-align: center;
+            background-color: transparent; /* CHANGED from var(--white) */
+        }
+
+        .contact-info a {
+            color: var(--secondary);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .social-links a {
+            margin: 0 15px;
+            color: var(--primary);
+            font-size: 1.2em;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border 0.3s;
+        }
+
+        .social-links a:hover {
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* Project Styles - Scrollable Alternating Detail Rows */
+        .project-container {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .project-section {
+            min-height: auto;
+            display: block;
+            padding: 100px 5% !important;
+            box-sizing: border-box;
+            background-color: var(--white);
+            border-bottom: 2px solid var(--light-bg);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .project-title {
+            font-size: 3em;
+            color: var(--primary);
+            margin: 0 0 15px;
+            border: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .project-overview {
+            max-width: 100%; /* Changed from 900px */
+            margin: 0 auto 70px;
+            line-height: 1.8;
+            color: #444;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .project-detail-grid {
+            width: 100%;
+            max-width: 100%; /* Changed from 1250px */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .detail-item {
+            min-height: 420px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+            align-items: center;
+            gap: 70px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        /* Drawing: text left, image right */
+        .detail-item:nth-child(1) {
+            grid-template-areas: "text image";
+        }
+
+        /* Elevation: image left, text right */
+        .detail-item:nth-child(2) {
+            grid-template-areas: "image text";
+        }
+
+        /* Render: text left, image right */
+        .detail-item:nth-child(3) {
+            grid-template-areas: "text image";
+        }
+
+        .detail-item h4,
+        .detail-item p,
+        .detail-item .detail-copy,
+        .detail-item .detail-copy-description {
+            grid-area: text;
+        }
+
+        .detail-item .detail-copy {
+            display: contents;
+        }
+
+        .detail-item h4 {
+            align-self: end;
+            font-size: 2.1em;
+            color: var(--secondary);
+            margin: 0 0 15px;
+        }
+
+        .detail-item p {
+            align-self: start;
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #555;
+            margin: 0;
+        }
+
+        .detail-image-box {
+            grid-area: image;
+            width: 100%;
+            height: 430px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .detail-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .detail-image-box:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 15px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+                margin: 0;
+            }
+
+            nav ul {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px 18px;
+                margin-top: 12px;
+            }
+
+            nav ul li {
+                margin: 0;
+            }
+
+            #hero {
+                min-height: 80vh;
+                padding: 100px 20px;
+                box-sizing: border-box;
+            }
+
+            #hero h2 {
+                font-size: clamp(2.1rem, 10vw, 3.5rem);
+                margin-top: 0;
+            }
+
+            #hero p {
+                font-size: 1.05rem;
+                line-height: 1.6;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 35px;
+            }
+
+            .project-section {
+                min-height: auto;
+                padding: 70px 20px !important;
+            }
+
+            .project-title {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .project-overview {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .project-detail-grid {
+                gap: 55px;
+            }
+
+            .detail-item,
+            .detail-item:nth-child(1),
+            .detail-item:nth-child(2),
+            .detail-item:nth-child(3) {
+                min-height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 20px;
+            }
+
+            .detail-item h4 {
+                font-size: 1.6rem;
+                order: 1;
+            }
+
+            .detail-image-box {
+                height: 280px;
+                order: 2;
+            }
+
+            .detail-item p {
+                order: 3;
+            }
+
+            .about-content {
+                font-size: 1rem;
+            }
+
+            .social-links a {
+                display: inline-block;
+                margin: 8px 10px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .project-row, .project-row:nth-child(even) {
+                flex-direction: column;
+            }
+            .project-image {
+                height: 350px;
+                width: 100%;
+            }
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Scroll Animation Trigger */
+        .reveal {
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: 1s all cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Staggered animation for grid items */
+        .detail-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active .detail-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal.active .detail-item:nth-child(1) { transition-delay: 0.2s; }
+        .reveal.active .detail-item:nth-child(2) { transition-delay: 0.4s; }
+        .reveal.active .detail-item:nth-child(3) { transition-delay: 0.6s; }
+
+        #tsparticles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: transparent;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div id="tsparticles"></div>
+    <header>
+        <h1>Kiran Kumar</h1>
+    </header>
+
+    <!-- The nav is now outside the header so it can stick independently -->
+    <nav class="sticky-nav">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <h2 class="animate">Crafting Green Sanctuaries</h2>
+        <p class="animate">Expertise in AutoCAD, SketchUp, and V-Ray</p>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="section-title">Project Portfolio</h2>
+        <div class="project-container">
+            <!-- Project 1 -->
+            <div class="project-section reveal" id="proj-1">
+                <h3 class="project-title">Project 1: Modern Minimalist Residence</h3>
+                <div class="project-overview">                    <p>A comprehensive interior design for a contemporary home, focusing on open spaces and natural light. This project involved a complete overhaul of the living and dining areas.</p>
+                </div>
+                <div class="project-detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-copy">
+                            <h4>Drawing (AutoCAD)</h4>
+                        </div>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&w=1200&q=80" alt="AutoCAD Drawing">
+                        </div>
+                        <div class="detail-copy detail-copy-description">
+                            <p>Detailed floor plans and electrical layouts ensuring precision in every corner.</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Elevations (SketchUp)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="SketchUp Elevations">
+                        </div>
+                        <p>3D elevations showcasing the wall treatments and furniture placement.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Renders (V-Ray)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" alt="V-Ray Render">
+                        </div>
+                        <p>Photorealistic renderings that capture the final ambiance and material finishes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <!-- Project 2 -->
+            <div class="project-section reveal" id="proj-2">
+                <h3 class="project-title">Project 2: Sustainable Office Space</h3>
+                <div class="project-overview">
+                    <p>Designing a productive and eco-friendly workspace for a tech startup. Incorporation of indoor plants and recycled materials was a key requirement.</p>
+                </div>
+                <div class="project-detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-copy">
+                            <h4>Drawing (AutoCAD)</h4>
+                        </div> <!-- FIXED: Added missing closing div here -->
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="AutoCAD Drawing">
+                        </div>
+                        <div class="detail-copy detail-copy-description"> <!-- FIXED: Wrapped paragraph in proper container -->
+                            <p>Office zoning and circulation paths mapped out for maximum efficiency.</p>
+                        </div> <!-- FIXED: Added missing closing div here -->
+                    </div>
+                    <div class="detail-item">
+                        <h4>Elevations (SketchUp)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80" alt="SketchUp Elevations">
+                        </div>
+                        <p>Visualizing workstation layouts and collaborative zones.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Renders (V-Ray)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="V-Ray Render">
+                        </div>
+                        <p>Atmospheric renders showcasing the integration of natural elements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <!-- Project 2 -->
+            <div class="project-section reveal" id="proj-3">
+                <h3 class="project-title">Project 2: Sustainable Office Space</h3>
+                <div class="project-overview">
+                    <p>Designing a productive and eco-friendly workspace for a tech startup. Incorporation of indoor plants and recycled materials was a key requirement.</p>
+                </div>
+                <div class="project-detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-copy">
+                            <h4>Drawing (AutoCAD)</h4>
+                        </div> <!-- FIXED: Added missing closing div here -->
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="AutoCAD Drawing">
+                        </div>
+                        <div class="detail-copy detail-copy-description"> <!-- FIXED: Wrapped paragraph in proper container -->
+                            <p>Office zoning and circulation paths mapped out for maximum efficiency.</p>
+                        </div> <!-- FIXED: Added missing closing div here -->
+                    </div>
+                    <div class="detail-item">
+                        <h4>Elevations (SketchUp)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80" alt="SketchUp Elevations">
+                        </div>
+                        <p>Visualizing workstation layouts and collaborative zones.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Renders (V-Ray)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="V-Ray Render">
+                        </div>
+                        <p>Atmospheric renders showcasing the integration of natural elements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <!-- Project 2 -->
+            <div class="project-section reveal" id="proj-4">
+                <h3 class="project-title">Project 2: Sustainable Office Space</h3>
+                <div class="project-overview">
+                    <p>Designing a productive and eco-friendly workspace for a tech startup. Incorporation of indoor plants and recycled materials was a key requirement.</p>
+                </div>
+                <div class="project-detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-copy">
+                            <h4>Drawing (AutoCAD)</h4>
+                        </div> <!-- FIXED: Added missing closing div here -->
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="AutoCAD Drawing">
+                        </div>
+                        <div class="detail-copy detail-copy-description"> <!-- FIXED: Wrapped paragraph in proper container -->
+                            <p>Office zoning and circulation paths mapped out for maximum efficiency.</p>
+                        </div> <!-- FIXED: Added missing closing div here -->
+                    </div>
+                    <div class="detail-item">
+                        <h4>Elevations (SketchUp)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80" alt="SketchUp Elevations">
+                        </div>
+                        <p>Visualizing workstation layouts and collaborative zones.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Renders (V-Ray)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="V-Ray Render">
+                        </div>
+                        <p>Atmospheric renders showcasing the integration of natural elements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-section reveal" id="proj-5">
+                <h3 class="project-title">Project 5: Zen Garden</h3>
+                <div class="project-overview">
+                    <p>Designing a productive and eco-friendly workspace for a tech startup. Incorporation of indoor plants and recycled materials was a key requirement.</p>
+                </div>
+                <div class="project-detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-copy">
+                            <h4>Drawing (AutoCAD)</h4>
+                        </div> <!-- FIXED: Added missing closing div here -->
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="AutoCAD Drawing">
+                        </div>
+                        <div class="detail-copy detail-copy-description"> <!-- FIXED: Wrapped paragraph in proper container -->
+                            <p>Office zoning and circulation paths mapped out for maximum efficiency.</p>
+                        </div> <!-- FIXED: Added missing closing div here -->
+                    </div>
+                    <div class="detail-item">
+                        <h4>Elevations (SketchUp)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80" alt="SketchUp Elevations">
+                        </div>
+                        <p>Visualizing workstation layouts and collaborative zones.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Renders (V-Ray)</h4>
+                        <div class="detail-image-box">
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="V-Ray Render">
+                        </div>
+                        <p>Atmospheric renders showcasing the integration of natural elements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="reveal">
+        <div class="about-content">
+            <h2 class="section-title">The Designer</h2>
+            <p>
+                With a deep-rooted passion for sustainable and organic aesthetics, I specialize in creating interiors that breathe. 
+                My workflow integrates the technical rigor of <strong>AutoCAD</strong>, the creative flexibility of <strong>SketchUp</strong>, 
+                and the visual power of <strong>V-Ray</strong> to deliver a seamless design experience from concept to completion.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <h2 class="section-title">Let's Create</h2>
+        <div class="contact-info">
+            <p>Ready to transform your space? Reach out for a consultation.</p>
+            <p>Email: <a href="mailto:hello@interiorvision.com">hello@interiorvision.com</a></p>
+            <p>Phone: +1 (555) 987-6543</p>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Pinterest</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Interior Vision Studio | Sustainable Design Excellence</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script>
+        // Particle Animation Configuration
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 80, density: { enable: true, area: 800 } },
+                color: { value: "#2d6a4f" },
+                shape: { type: "circle" },
+                opacity: {
+                    value: 0.3,
+                    random: false,
+                    anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+                },
+                links: {
+                    enable: true,
+                    distance: 150,
+                    color: "#2d6a4f",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    outModes: { default: "out" },
+                    bounce: false,
+                    attract: { enable: false, rotateX: 600, rotateY: 1200 }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, links: { opacity: 1 } },
+                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 }
+                }
+            },
+            detectRetina: true
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll Parallax for Hero (throttled for performance)
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scroll = window.pageYOffset;
+                    const hero = document.getElementById('hero');
+                    if (hero) {
+                        hero.style.backgroundPosition = 'center ' + (scroll * 0.3) + 'px';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+</html>
