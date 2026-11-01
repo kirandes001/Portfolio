@@ -190,10 +190,12 @@
         }
 
         .cover-content h1 {
-            font-size: clamp(3rem, 15vw, 8rem);
-            line-height: 1;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
+            font-size: clamp(4.4rem, 16vw, 22rem);
+            line-height: 0.78;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.06em;
+            color: #6a6a6a;
+            font-weight: 400;
             animation: slideUp 1s cubic-bezier(0.33, 0.66, 0.66, 1);
         }
 
@@ -204,28 +206,28 @@
         }
 
         .cover-content p:nth-of-type(2) {
-            font-size: clamp(1.5rem, 2.5vw, 1.7rem);
-            letter-spacing: 0.08em;
+            font-size: clamp(0.75rem, 1.2vw, 1.1rem);
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: var(--text-secondary);
+            color: #6a6a6a;
             margin-bottom: 0.5rem;
             animation-delay: 0s;
         }
 
         .by-tag{
-            font-size: clamp(1.5rem, 2.5vw, 1.7rem);
-            letter-spacing: 0.08em;
+            font-size: clamp(0.75rem, 1.2vw, 1.1rem);
+            letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            color: #6a6a6a;
+            margin-bottom: 0.2rem;
             animation-delay: 0.3s;
         }
 
         .cover-content p:nth-of-type(3) {
-            font-size: clamp(0.85rem, 1.8vw, 1.05rem);
-            letter-spacing: 0.12em;
+            font-size: clamp(0.52rem, 0.8vw, 0.75rem);
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--text-light);
+            color: #8d8d8d;
             animation-delay: 0.5s;
         }
 
@@ -367,47 +369,65 @@
         }
 
         .projects-index-container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+            min-height: 72vh;
+            position: relative;
             padding-top: 2rem;
             padding-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .projects-index-label {
+            position: absolute;
+            left: 50%;
+            top: 18%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            letter-spacing: 0.38em;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: #505050;
+            margin: 0;
+            padding: 0;
+            text-align: center;
         }
 
         .projects-index-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .projects-index-header h2 {
-            font-size: clamp(1.75rem, 4vw, 3rem);
-            margin-bottom: 0.75rem;
-            line-height: 1.1;
-        }
-
-        .projects-index-header p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            max-width: 600px;
+            display: none;
         }
 
         .projects-index-list {
-            border-top: 1px solid var(--border-color);
+            position: relative;
+            left: 0;
+            top: 0;
+            transform: none;
             max-height: none;
             overflow-y: visible;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 5rem;
+            width: min(1300px, 96%);
+            margin: 0 auto;
         }
 
         .project-index-item {
-            display: grid;
-            grid-template-columns: 0.8fr 1fr auto;
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid var(--border-color);
+            justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            width: auto;
+            min-width: 0;
+            color: #3b3b3b;
+            margin: 0;
+            flex: 1 1 0;
         }
 
         .project-index-item:last-child {
@@ -415,31 +435,133 @@
         }
 
         .project-index-item:hover {
-            padding-left: 1rem;
-            background: rgba(0, 0, 0, 0.01);
+            opacity: 0.9;
         }
 
-        .project-index-number {
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-light);
-            font-weight: 600;
+        .project-index-visual {
+            width: 100%;
+            max-width: 340px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-bottom: 0;
+            overflow: hidden;
+            padding-top: 0.1rem;
+            padding-left: 1.4rem;
+            padding-right: 1.4rem;
         }
 
-        .project-index-title {
-            font-size: clamp(1.3rem, 2vw, 1.3rem);
-            font-weight: 600;
+        .project-index-visual .project-index-icon {
+            width: min(100%, 340px);
+            height: auto;
+            display: block;
+            object-fit: cover;
+            object-position: center center;
+            transform: translateY(-8px);
+            transform-origin: center center;
+        }
+
+        .project-index-item:nth-child(2) .project-index-visual .project-index-icon {
+            transform: translateY(-10px);
         }
 
         .project-index-arrow {
-            color: var(--text-light);
-            transition: transform 0.3s ease;
+            display: none;
         }
 
-        .project-index-item:hover .project-index-arrow {
-            transform: translateX(6px);
-            color: var(--text-primary);
+        .image-lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 5000;
+        }
+
+        .image-lightbox.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-toolbar {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 5001;
+        }
+
+        .lightbox-control {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+            font-size: 26px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s ease;
+        }
+
+        .lightbox-control:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .lightbox-stage {
+            width: min(92vw, 1200px);
+            height: min(88vh, 860px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transform: scale(var(--zoom, 1));
+            transition: transform 0.15s ease;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        @media (max-width: 768px) {
+            .projects-index-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+                top: 0;
+                transform: none;
+                width: min(420px, 90%);
+            }
+
+            .project-index-item {
+                gap: 0;
+                width: 100%;
+                flex: none;
+            }
+
+            .project-index-visual {
+                max-width: 300px;
+            }
+
+            .project-index-visual .project-index-icon {
+                width: min(100%, 300px);
+                transform: translateY(-6px);
+            }
         }
 
         /* ============ PROJECT COVER PAGE ============ */
@@ -472,30 +594,38 @@
         .project-cover-content {
             position: relative;
             z-index: 3;
-            padding: 3rem 2rem;
-            max-width: 600px;
+            padding: 1.4rem 1.6rem;
+            max-width: min(560px, 78vw);
             color: white;
+            background: rgba(10, 10, 10, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 16px;
+            backdrop-filter: blur(1px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
         }
 
         .project-cover-number {
             font-size: 0.75rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            opacity: 0.7;
-            margin-bottom: 1rem;
+            opacity: 0.95;
+            margin-bottom: 0.9rem;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
         }
 
         .project-cover-content h2 {
             font-size: clamp(1.5rem, 4vw, 2.5rem);
-            margin-bottom: 1rem;
+            margin-bottom: 0.9rem;
             color: white;
             line-height: 1.3;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
         }
 
         .project-cover-content p {
             font-size: 0.95rem;
             line-height: 1.6;
-            opacity: 0.95;
+            opacity: 1;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
         }
 
         /* ============ PROJECT SECTION ============ */
@@ -641,9 +771,17 @@
 
         .gallery-view {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+        }
+
+        .gallery-view-item {
+            min-width: 0;
+        }
+
+        .gallery-view-item.featured-view {
+            grid-column: span 2;
         }
 
         .gallery-view-item img {
@@ -653,6 +791,10 @@
             object-fit: cover;
             background: #f5f5f5;
             aspect-ratio: 4/3;
+        }
+
+        .gallery-view-item.featured-view img {
+            aspect-ratio: 16 / 9;
         }
 
         .view-caption {
@@ -1021,13 +1163,21 @@
     <!-- Projects Index -->
     <section id="projects-index">
         <div class="projects-index-container">
-            <div class="projects-index-header reveal">
-                <h2>SELECTED PROJECTS</h2>
-                <p>A curated selection of millwork and interior design projects showcasing design development, documentation, and visualization.</p>
-            </div>
+            <div class="projects-index-label">INDEX</div>
             <div class="projects-index-list reveal reveal-stagger-1" id="projectIndexList"></div>
         </div>
     </section>
+
+    <div id="image-lightbox" class="image-lightbox" aria-hidden="true">
+        <div class="lightbox-toolbar">
+            <button class="lightbox-control" type="button" data-action="zoom-out" aria-label="Zoom out">−</button>
+            <button class="lightbox-control" type="button" data-action="zoom-in" aria-label="Zoom in">＋</button>
+            <button class="lightbox-control" type="button" data-action="close" aria-label="Close">×</button>
+        </div>
+        <div class="lightbox-stage">
+            <img class="lightbox-image" src="" alt="Expanded project view" />
+        </div>
+    </div>
 
     <!-- Projects Container -->
     <div id="projectsContainer"></div>
@@ -1065,7 +1215,8 @@
             {
                 id: "project-01",
                 number: "01",
-                title: "Modular Kitchen Cabinetry System",
+                iconType: "kitchen",
+                title: "KITCHEN",
                 category: "RESIDENTIAL MILLWORK",
                 coverOverview: "Complete kitchen cabinetry solution featuring custom joinery, integrated appliance housing, and optimized storage solutions.",
                 overview: {
@@ -1112,7 +1263,8 @@
             {
                 id: "project-02",
                 number: "02",
-                title: "Commercial Reception & Display Cabinetry",
+                iconType: "closet",
+                title: "MASTER CLOSET",
                 category: "COMMERCIAL MILLWORK",
                 coverOverview: "Bespoke reception desk and display cabinetry for corporate office with integrated lighting and specialized compartments.",
                 overview: {
@@ -1125,33 +1277,40 @@
                     software: "Cabinet Vision / AutoCAD / SketchUp"
                 },
                 preliminaryDrawings: [
-                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=800&fit=crop", caption: "Desk form development" },
-                    { src: "https://images.unsplash.com/photo-1565182999555-91d9f8fd74a6?w=400&h=600&fit=crop", caption: "Display compartment organization" },
-                    { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=600&fit=crop", caption: "Material selection studies" }
+                    { src: "src/assets/Master Closet/Preliminary/01.Preliminary.png", caption: "Initial spatial planning and layout exploration" },
+                    { src: "src/assets/Master Closet/Preliminary/02.Preliminary.png", caption: "Cabinet placement and zoning study" },
+                    { src: "src/assets/Master Closet/Preliminary/03.Preliminary.png", caption: "Storage configuration and section development" },
+                    { src: "src/assets/Master Closet/Preliminary/04.Preliminary.png", caption: "Design refinement and millwork study" }
                 ],
                 shopDrawings: [
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop", caption: "SHOP DRAWING 01 - Reception desk front elevation" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop", caption: "SHOP DRAWING 02 - Cross-section with interior layout" },
-                    { src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop", caption: "SHOP DRAWING 03 - Display shelf specifications" },
-                    { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop", caption: "SHOP DRAWING 04 - Side profile details" }
+                    { src: "src/assets/Master Closet/Shop Drawing/View 01.png", caption: "SHOP DRAWING 01 - Front elevation and cabinet distribution" },
+                    { src: "src/assets/Master Closet/Shop Drawing/View 02.png", caption: "SHOP DRAWING 02 - Sectional view and internal zoning" },
+                    { src: "src/assets/Master Closet/Shop Drawing/View 04.png", caption: "SHOP DRAWING 04 - Drawer and shelving assembly detail" },
+                    { src: "src/assets/Master Closet/Shop Drawing/View 05.png", caption: "SHOP DRAWING 05 - Final production development" }
                 ],
                 technicalDetails: [
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 01 - LED light fixture integration" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 02 - Electrical routing specifications" },
-                    { src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 03 - Structural support requirements" }
+                    { src: "src/assets/Master Closet/Techinical Detail/View 01.png", caption: "TECHNICAL DETAIL 01 - Internal cabinet section and joinery" },
+                    { src: "src/assets/Master Closet/Techinical Detail/View 02.png", caption: "TECHNICAL DETAIL 02 - Sectional wall and fixed shelf assembly" },
+                    { src: "src/assets/Master Closet/Techinical Detail/View 03.png", caption: "TECHNICAL DETAIL 03 - Integrated storage and hanging rail detail" },
+                    { src: "src/assets/Master Closet/Techinical Detail/View 04.png", caption: "TECHNICAL DETAIL 04 - Final construction and panel detailing" }
                 ],
                 viewImages: [
-                    { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", caption: "VIEW 01", subcaption: "Reception area elevation perspective" },
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop", caption: "VIEW 02", subcaption: "Detailed material finishes" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop", caption: "VIEW 03", subcaption: "Integrated lighting visualization" }
+                    { src: "src/assets/Master Closet/Final Render/View 01.png", caption: "VIEW 01", subcaption: "Entrance perspective of the master closet" },
+                    { src: "src/assets/Master Closet/Final Render/View 02.png", caption: "VIEW 02", subcaption: "Central aisle and integrated storage layout" },
+                    { src: "src/assets/Master Closet/Final Render/View 03.png", caption: "VIEW 03", subcaption: "Material palette and lighting composition" },
+                    { src: "src/assets/Master Closet/Final Render/View 04.png", caption: "VIEW 04", subcaption: "Detailed wardrobe interior visualization" },
+                    { src: "src/assets/Master Closet/Final Render/View 05.png", caption: "VIEW 05", subcaption: "Corner cabinet and shelving arrangement" },
+                    { src: "src/assets/Master Closet/Final Render/View 06.png", caption: "VIEW 06", subcaption: "Secondary perspective and functional layout" }
                 ],
-                coverImage: "src/assets/coverdrawing2.png",
-                coverDrawing: "src/assets/PR1View3.png"
+                coverImage: "src/assets/Master Closet/Final Render/Cover.png",
+                coverDrawing: "src/assets/Master Closet/Final Render/Cover.png",
+                coverRender: "src/assets/Master Closet/Final Render/View 09.png"
             },
             {
                 id: "project-03",
                 number: "03",
-                title: "Fitted Wardrobe & Storage System",
+                iconType: "restaurant",
+                title: "RESTAURANT & BAR",
                 category: "RESIDENTIAL MILLWORK",
                 coverOverview: "Comprehensive fitted wardrobe with integrated storage solutions and specialized compartments designed with frameless construction.",
                 overview: {
@@ -1164,119 +1323,98 @@
                     software: "Cabinet Vision / AutoCAD / V-Ray"
                 },
                 preliminaryDrawings: [
-                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=800&fit=crop", caption: "Wardrobe layout optimization" },
-                    { src: "https://images.unsplash.com/photo-1565182999555-91d9f8fd74a6?w=400&h=600&fit=crop", caption: "Hanging rail systems studies" },
-                    { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=600&fit=crop", caption: "Door style exploration" }
+                    { src: "src/assets/Restaurent/Priliminary Drawings/View 01.jpeg", caption: "Initial bar layout and concept planning" },
+                    { src: "src/assets/Restaurent/Priliminary Drawings/View 02.jpeg", caption: "Spatial organization and counter composition study" }
                 ],
                 shopDrawings: [
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop", caption: "SHOP DRAWING 01 - Wardrobe cabinet front elevation" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop", caption: "SHOP DRAWING 02 - Side profile section" },
-                    { src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop", caption: "SHOP DRAWING 03 - Interior elevation" },
-                    { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop", caption: "SHOP DRAWING 04 - Frame assembly details" }
+                    { src: "src/assets/Restaurent/Shop Drawings/View 01.png", caption: "SHOP DRAWING 01 - Bar front elevation and section" },
+                    { src: "src/assets/Restaurent/Shop Drawings/View 02.png", caption: "SHOP DRAWING 02 - Counter and back wall layout" }
                 ],
                 technicalDetails: [
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 01 - Hinge specifications" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 02 - Door mounting requirements" },
-                    { src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 03 - Rail support structure" }
+                    { src: "src/assets/Restaurent/Tech Drawing/Tech 01.png", caption: "TECHNICAL DETAIL 01 - Section and cabinet detailing" },
+                    { src: "src/assets/Restaurent/Tech Drawing/Tech 02.png", caption: "TECHNICAL DETAIL 02 - Assembly and support specification" }
                 ],
                 viewImages: [
-                    { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", caption: "VIEW 01", subcaption: "Full-height wardrobe perspective" },
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop", caption: "VIEW 02", subcaption: "Interior storage organization" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop", caption: "VIEW 03", subcaption: "Door hardware detail" }
+                    { src: "src/assets/Restaurent/Final Render/Scene 2 new.png", caption: "VIEW 01", subcaption: "Main bar counter perspective" },
+                    { src: "src/assets/Restaurent/Final Render/Scene 3 new).png", caption: "VIEW 02", subcaption: "Interior mood and material composition" },
+                    { src: "src/assets/Restaurent/Final Render/Scene 7.png", caption: "VIEW 03", subcaption: "Seating and hospitality lounge setting" },
+                    { src: "src/assets/Restaurent/Final Render/Scene 9.png", caption: "VIEW 04", subcaption: "Alternate view of the finished bar space" },
+                    { src: "src/assets/Restaurent/Final Render/Scene 10.png", caption: "VIEW 05", subcaption: "Complete bar presentation view" },
+                    { src: "src/assets/Restaurent/Final Render/Image(1).png", caption: "VIEW 06", subcaption: "Detailed material and finish context" },
+                    { src: "src/assets/Restaurent/Final Render/Image(2).png", caption: "VIEW 07", subcaption: "Detailed hospitality interior and lighting" }
                 ],
-                coverImage: "src/assets/coverdrawing2.png",
-                coverDrawing: "src/assets/PR1View3.png"
+                coverImage: "src/assets/Restaurent/Final Render/Cover.png",
+                coverDrawing: "src/assets/Restaurent/Final Render/Cover.png",
+                coverRender: "src/assets/Restaurent/Final Render/Image(1).png"
             },
-            {
-                id: "project-04",
-                number: "04",
-                title: "Custom Vanity & Bathroom Millwork",
-                category: "RESIDENTIAL MILLWORK",
-                coverOverview: "Bespoke bathroom vanity with integrated storage, mirror frames, and custom joinery for moisture-resistant construction.",
-                overview: {
-                    description: "Premium bathroom vanity design incorporating moisture-resistant materials. Combined sculptural form with engineering precision.",
-                    projectType: "Vanity Cabinetry",
-                    location: "Pune, India",
-                    year: "2023",
-                    area: "8 Linear Meters",
-                    role: "Technical Designer",
-                    software: "Cabinet Vision / AutoCAD / SketchUp"
-                },
-                preliminaryDrawings: [
-                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=800&fit=crop", caption: "Vanity form development" },
-                    { src: "https://images.unsplash.com/photo-1565182999555-91d9f8fd74a6?w=400&h=600&fit=crop", caption: "Plumbing integration studies" },
-                    { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=600&fit=crop", caption: "Mirror frame design" }
-                ],
-                shopDrawings: [
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop", caption: "SHOP DRAWING 01 - Vanity front elevation with countertop" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop", caption: "SHOP DRAWING 02 - Vertical section showing drawer space" },
-                    { src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop", caption: "SHOP DRAWING 03 - Drain routing details" },
-                    { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop", caption: "SHOP DRAWING 04 - Mirror attachment specifications" }
-                ],
-                technicalDetails: [
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 01 - Moisture barrier specifications" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 02 - Waterproofing details" },
-                    { src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 03 - Drawer slide specifications" }
-                ],
-                viewImages: [
-                    { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", caption: "VIEW 01", subcaption: "Bathroom vanity front perspective" },
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop", caption: "VIEW 02", subcaption: "Mirror and lighting detail" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop", caption: "VIEW 03", subcaption: "Material finish visualization" }
-                ],
-                coverImage: "src/assets/coverdrawing2.png",
-                coverDrawing: "src/assets/PR1View3.png"
-
-            },
-            {
-                id: "project-05",
-                number: "05",
-                title: "Integrated Home Office & Library Cabinetry",
-                category: "RESIDENTIAL MILLWORK",
-                coverOverview: "Custom integrated cabinetry combining home office workspace with library shelving designed with AWI premium standards.",
-                overview: {
-                    description: "Sophisticated home office and library integration combining workspace functionality with display shelving. Applied AWI premium standards for finish quality.",
-                    projectType: "Custom Furniture",
-                    location: "Bangalore, India",
-                    year: "2023",
-                    area: "18 Linear Meters",
-                    role: "Project Lead & Quality Control",
-                    software: "Cabinet Vision / AutoCAD / V-Ray"
-                },
-                preliminaryDrawings: [
-                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=800&fit=crop", caption: "Workspace and library zone definition" },
-                    { src: "https://images.unsplash.com/photo-1565182999555-91d9f8fd74a6?w=400&h=600&fit=crop", caption: "Shelving height optimization" },
-                    { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=600&fit=crop", caption: "Desktop layout with ergonomic studies" }
-                ],
-                shopDrawings: [
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop", caption: "SHOP DRAWING 01 - Full wall elevation" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop", caption: "SHOP DRAWING 02 - Horizontal section with shelf supports" },
-                    { src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop", caption: "SHOP DRAWING 03 - Desk base structure" },
-                    { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop", caption: "SHOP DRAWING 04 - Drawer assembly details" }
-                ],
-                technicalDetails: [
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 01 - Shelf support bracket specifications" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 02 - Weight load calculations" },
-                    { src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop", caption: "TECHNICAL DETAIL 03 - Premium finish specifications" }
-                ],
-                viewImages: [
-                    { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", caption: "VIEW 01", subcaption: "Home office workspace perspective" },
-                    { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop", caption: "VIEW 02", subcaption: "Library shelving display" },
-                    { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop", caption: "VIEW 03", subcaption: "Integrated lighting and finish detail" }
-                ],
-                coverImage: "src/assets/coverdrawing2.png",
-                coverDrawing: "src/assets/PR1View3.png"
-            }
         ];
+
+        function getProjectIllustration(type) {
+            const iconMap = {
+                kitchen: 'src/assets/index/kitchen_crop.png',
+                closet: 'src/assets/index/closet_crop.png',
+                restaurant: 'src/assets/index/Restaurentandbar_crop.png',
+                default: 'src/assets/index/kitchen_crop.png'
+            };
+
+            const src = iconMap[type] || iconMap.default;
+            return `<img src="${src}" alt="${type} project icon" class="project-index-icon">`;
+        }
 
         function renderProjectIndex() {
             const indexList = document.getElementById('projectIndexList');
-            indexList.innerHTML = projectsData.map(project => `
-                <div class="project-index-item reveal reveal-stagger-1" onclick="document.getElementById('${project.id}').scrollIntoView({ behavior: 'smooth' })">
-                    <div class="project-index-number">${project.number}</div>
-                    <div class="project-index-title">${project.title}</div>
-                    <div class="project-index-arrow">→</div>
-                </div>
-            `).join('');
+            indexList.innerHTML = projectsData.map(project => {
+                const illustration = getProjectIllustration(project.iconType || 'default');
+                return `
+                    <div class="project-index-item reveal reveal-stagger-1" data-project-id="${project.id}">
+                        <div class="project-index-visual">${illustration}</div>
+                        <div class="project-index-arrow">→</div>
+                    </div>
+                `;
+            }).join('');
+
+            const projectItems = document.querySelectorAll('.project-index-item');
+            projectItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const projectId = item.dataset.projectId;
+                    if (projectId) {
+                        document.getElementById(projectId)?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        function openLightbox(src, alt) {
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImage = lightbox.querySelector('.lightbox-image');
+            if (!lightbox || !lightboxImage) return;
+
+            lightboxImage.src = src;
+            lightboxImage.alt = alt || 'Expanded project image';
+            lightboxImage.style.setProperty('--zoom', '1');
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImage = lightbox?.querySelector('.lightbox-image');
+            if (!lightbox || !lightboxImage) return;
+
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.style.setProperty('--zoom', '1');
+            document.body.style.overflow = '';
+        }
+
+        function setLightboxZoom(direction) {
+            const lightboxImage = document.querySelector('#image-lightbox .lightbox-image');
+            if (!lightboxImage) return;
+
+            const currentZoom = Number.parseFloat(lightboxImage.style.getPropertyValue('--zoom')) || 1;
+            const nextZoom = direction === 'in' ? Math.min(currentZoom + 0.2, 2.5) : Math.max(currentZoom - 0.2, 1);
+            lightboxImage.style.setProperty('--zoom', nextZoom.toFixed(2));
         }
 
         function renderProjects() {
@@ -1382,7 +1520,7 @@
                             <p class="section-subheading reveal reveal-stagger-1">PROJECT VISUALIZATION</p>
                             <div class="gallery-view">
                                 ${project.viewImages.map((img, i) => `
-                                    <div class="gallery-view-item reveal-image">
+                                    <div class="gallery-view-item reveal-image ${img.caption === 'VIEW 07' ? 'featured-view' : ''}">
                                         <img src="${img.src}" alt="${img.caption}">
                                         <div class="view-caption reveal reveal-stagger-${(i % 3) + 1}">
                                             <div class="view-caption-title">${img.caption}</div>
@@ -1437,8 +1575,11 @@
                     lastProgress = progress;
 
                     const eased = easeInOutCubic(progress);
-                    renderLayer.style.clipPath = `inset(0 0 0 ${eased * 100}%)`;
+                    const revealAmount = 100 - (eased * 100);
+                    renderLayer.style.clipPath = `inset(0 ${revealAmount}% 0 0)`;
                 };
+
+                renderLayer.style.clipPath = 'inset(0 100% 0 0)';
 
                 const requestUpdate = () => {
                     if (!ticking) {
@@ -1495,9 +1636,53 @@
             });
         }
 
+        function setupImageLightboxHandlers() {
+            const lightbox = document.getElementById('image-lightbox');
+            if (!lightbox) return;
+
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            lightbox.querySelectorAll('.lightbox-control').forEach(button => {
+                button.addEventListener('click', () => {
+                    const action = button.dataset.action;
+                    if (action === 'close') {
+                        closeLightbox();
+                    } else if (action === 'zoom-in') {
+                        setLightboxZoom('in');
+                    } else if (action === 'zoom-out') {
+                        setLightboxZoom('out');
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (!lightbox.classList.contains('is-open')) return;
+
+                if (event.key === 'Escape') {
+                    closeLightbox();
+                } else if (event.key === '+' || event.key === '=') {
+                    setLightboxZoom('in');
+                } else if (event.key === '-' || event.key === '_') {
+                    setLightboxZoom('out');
+                }
+            });
+
+            document.querySelectorAll('.gallery-preliminary-item img, .gallery-shop-item img, .gallery-technical-item img, .gallery-view-item img').forEach(img => {
+                img.style.cursor = 'default';
+                img.addEventListener('click', () => {
+                    openLightbox(img.src, img.alt || 'Project image');
+                });
+            });
+        }
+
         function init() {
             renderProjectIndex();
             renderProjects();
+            setupImageLightboxHandlers();
             setTimeout(() => {
                 setupProjectCoverTransitions();
                 setupScrollAnimations();
