@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiran Kumar JS - Millwork & Interior Designer Portfolio</title>
+    <title>Kiran Kumar JS - Interior Designer Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -310,9 +310,10 @@
 
         .software-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: clamp(0.75rem, 2vw, 1.5rem);
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: clamp(0.75rem, 1.5vw, 1.5rem);
             width: 100%;
+            align-items: start;
         }
 
         .software-item {
@@ -635,8 +636,9 @@
         }
 
         .project-section-container {
-            max-width: 1140px;
+            max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .section-heading {
@@ -659,15 +661,18 @@
             font-size: 1rem;
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
-            max-width: 700px;
+            max-width: 100%;
+            width: 100%;
             line-height: 1.8;
+            text-align: justify;
         }
 
         .overview-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem 3rem;
             margin-top: 2rem;
+            width: 100%;
         }
 
         .overview-item {
@@ -1107,7 +1112,7 @@
         <div class="cover-content reveal">
             <h1>PORTFOLIO</h1>
             <p class="by-tag">BY - KIRAN KUMAR JS</p>
-            <p>MILLWORK & INTERIOR DESIGNER</p>
+            <p>INTERIOR DESIGNER</p>
         </div>
     </section>
 
@@ -1151,7 +1156,13 @@
                                 <div class="software-icon">
                                     <i><img src="src/assets/icons\vray_icon.jpeg" alt="vray_icon"></i>
                                 </div>
-                                <div class="software-name">V-Ray</div>
+                                <div class="software-name">V-ray</div>
+                            </div>
+                            <div class="software-item">
+                                <div class="software-icon">
+                                    <i><img src="src/assets/icons\d5_render_icon.jpeg" alt="d5_render_icon"></i>
+                                </div>
+                                <div class="software-name">D5 Render</div>
                             </div>
                         </div>
                     </div>
@@ -1196,16 +1207,16 @@
                 <div class="footer-item reveal reveal-stagger-2">
                     <div class="footer-label">Phone</div>
                     <div class="footer-value">
-                        <a href="tel:+916385285437">+91 6385 285437</a>
+                        <a href="tel:+971555650366">+971 555650366</a>
                     </div>
                 </div>
                 <div class="footer-item reveal reveal-stagger-3">
                     <div class="footer-label">Location</div>
-                    <div class="footer-value">Bangalore, India</div>
+                    <div class="footer-value">Abu Hail, Dubai</div>
                 </div>
             </div>
             <div class="footer-copyright reveal">
-                &copy; 2025 Kiran Kumar JS. All rights reserved. | Millwork & Interior Designer
+                &copy; 2025 Kiran Kumar JS. All rights reserved. | Interior Designer
             </div>
         </div>
     </footer>
@@ -1220,13 +1231,9 @@
                 category: "RESIDENTIAL MILLWORK",
                 coverOverview: "Complete kitchen cabinetry solution featuring custom joinery, integrated appliance housing, and optimized storage solutions.",
                 overview: {
-                    description: "Comprehensive kitchen redesign utilizing frameless construction standards and precision joinery. The design balances aesthetic refinement with functional efficiency, incorporating integrated lighting solutions and specialized storage compartments.",
+                    description: "Designed a contemporary frameless kitchen featuring sleek Shaker-style cabinet doors, combining clean aesthetics with functional space planning. The design emphasizes seamless cabinetry, refined detailing, and efficient storage solutions, creating a timeless balance between modern simplicity and classic elegance.",
                     projectType: "Kitchen Cabinetry",
-                    location: "Bangalore, India",
-                    year: "2025",
-                    area: "15 Linear Meters",
-                    role: "Lead Technical Designer",
-                    software: "Cabinet Vision / AutoCAD / SketchUp"
+                    software: "AutoCAD / SketchUp / V-ray + AI Enhanced Render"
                 },
                 preliminaryDrawings: [
                     { src: "src/assets/proj_01/preliminary-01.jpeg", caption: "Initial spatial planning and layout exploration" },
@@ -1236,19 +1243,19 @@
                     { src: "src/assets/proj_01/preliminary-05.jpeg", caption: "Design refinement sketches" }
                 ],
                 shopDrawings: [
-                    { src: "src/assets/proj_01/shop-01.png", caption: "SHOP DRAWING 01 - Cabinet front elevation with dimensioning" },
-                    { src: "src/assets/proj_01/shop-02.png", caption: "SHOP DRAWING 02 - Vertical section showing interior compartments" },
-                    { src: "src/assets/proj_01/shop-03.png", caption: "SHOP DRAWING 03 - Hardware and hinge placement specification" },
-                    { src: "src/assets/proj_01/shop-04.png", caption: "SHOP DRAWING 04 - Joinery detail at corner joints" },
-                    { src: "src/assets/proj_01/shop-05.png", caption: "SHOP DRAWING 05 - Joinery detail at corner joints" },
-                    { src: "src/assets/proj_01/shop-06.png", caption: "SHOP DRAWING 06 - Joinery detail at corner joints" }
+                    { src: "src/assets/proj_01/shop-01.png", caption: "SHOP DRAWING 01 - Plan View of the kitchen" },
+                    { src: "src/assets/proj_01/shop-02.png", caption: "SHOP DRAWING 02 - Front elevation view of the kitchen" },
+                    { src: "src/assets/proj_01/shop-03.png", caption: "SHOP DRAWING 03 - Front elevation view of the kitchen" },
+                    { src: "src/assets/proj_01/shop-04.png", caption: "SHOP DRAWING 04 - Front elevation view of the kitchen" },
+                    { src: "src/assets/proj_01/shop-05.png", caption: "SHOP DRAWING 05 - Island Front view" },
+                    { src: "src/assets/proj_01/shop-06.png", caption: "SHOP DRAWING 06 - Island Back view" }
 
                 ],
                 technicalDetails: [
-                    { src: "src/assets/proj_01/technical-01.png", caption: "TECHNICAL DETAIL 01 - Edge banding and finish specifications" },
-                    { src: "src/assets/proj_01/technical-02.png", caption: "TECHNICAL DETAIL 02 - Drawer slide load ratings and spacing" },
-                    { src: "src/assets/proj_01/technical-03.png", caption: "TECHNICAL DETAIL 03 - Tolerance and installation requirements" },
-                    { src: "src/assets/proj_01/technical-04.png", caption: "TECHNICAL DETAIL 04 - Tolerance and installation requirements" }
+                    { src: "src/assets/proj_01/technical-01.png", caption: "TECHNICAL DETAIL 01 - Section view of Cooktop Cabinet" },
+                    { src: "src/assets/proj_01/technical-02.png", caption: "TECHNICAL DETAIL 02 - Section view of Sink Cabinet" },
+                    { src: "src/assets/proj_01/technical-03.png", caption: "TECHNICAL DETAIL 03 - Section view of Drawer Cabinet" },
+                    { src: "src/assets/proj_01/technical-04.png", caption: "TECHNICAL DETAIL 04 - Section view of Floating Shelf" }
 
                 ],
                 viewImages: [
@@ -1259,7 +1266,8 @@
                 ],
                 coverImage: "src/assets/proj_01/cover.png",
                 coverDrawing: "src/assets/proj_01/cover.png",
-                coverRender: "src/assets/proj_01/cover_overlay.png"
+                coverRender: "src/assets/proj_01/cover_overlay.png",
+                renderHeading: "V-ray + AI Enhanced"
             },
             {
                 id: "project-02",
@@ -1267,15 +1275,11 @@
                 iconType: "closet",
                 title: "MASTER CLOSET",
                 category: "COMMERCIAL MILLWORK",
-                coverOverview: "Bespoke reception desk and display cabinetry for corporate office with integrated lighting and specialized compartments.",
+                coverOverview: "Designed a contemporary master closet with elegant cabinetry, optimized storage solutions, and functional space planning.",
                 overview: {
-                    description: "Custom-designed reception area featuring sculptural form combined with integrated display shelving. The project required close coordination between design and engineering.",
-                    projectType: "Commercial Cabinetry",
-                    location: "Mumbai, India",
-                    year: "2024",
-                    area: "22 Linear Meters",
-                    role: "Technical Designer & Production Support",
-                    software: "Cabinet Vision / AutoCAD / SketchUp"
+                    description: "Designed a contemporary master closet featuring a refined combination of open and closed storage solutions, with carefully planned hanging spaces, shelving, and drawer units. The design focuses on maximizing storage efficiency while maintaining a clean, sophisticated aesthetic through seamless cabinetry, balanced proportions, and functional detailing.",
+                    projectType: "Wardrobe Cabinets",
+                    software: "AutoCAD / SketchUp / V-ray"
                 },
                 preliminaryDrawings: [
                     { src: "src/assets/Master Closet/Preliminary/01.Preliminary.png", caption: "Initial spatial planning and layout exploration" },
@@ -1284,16 +1288,16 @@
                     { src: "src/assets/Master Closet/Preliminary/04.Preliminary.png", caption: "Design refinement and millwork study" }
                 ],
                 shopDrawings: [
-                    { src: "src/assets/Master Closet/Shop Drawing/View 01.png", caption: "SHOP DRAWING 01 - Front elevation and cabinet distribution" },
-                    { src: "src/assets/Master Closet/Shop Drawing/View 02.png", caption: "SHOP DRAWING 02 - Sectional view and internal zoning" },
-                    { src: "src/assets/Master Closet/Shop Drawing/View 04.png", caption: "SHOP DRAWING 04 - Drawer and shelving assembly detail" },
-                    { src: "src/assets/Master Closet/Shop Drawing/View 05.png", caption: "SHOP DRAWING 05 - Final production development" }
+                    { src: "src/assets/Master Closet/Shop Drawing/View 01.png", caption: "SHOP DRAWING 01 - Plan View of the closet" },
+                    { src: "src/assets/Master Closet/Shop Drawing/View 02.png", caption: "SHOP DRAWING 02 - Front elevation view of the closet" },
+                    { src: "src/assets/Master Closet/Shop Drawing/View 04.png", caption: "SHOP DRAWING 04 - Front elevation view of the closet" },
+                    { src: "src/assets/Master Closet/Shop Drawing/View 05.png", caption: "SHOP DRAWING 05 - Front elevation view of the closet" }
                 ],
                 technicalDetails: [
-                    { src: "src/assets/Master Closet/Techinical Detail/View 01.png", caption: "TECHNICAL DETAIL 01 - Internal cabinet section and joinery" },
-                    { src: "src/assets/Master Closet/Techinical Detail/View 02.png", caption: "TECHNICAL DETAIL 02 - Sectional wall and fixed shelf assembly" },
-                    { src: "src/assets/Master Closet/Techinical Detail/View 03.png", caption: "TECHNICAL DETAIL 03 - Integrated storage and hanging rail detail" },
-                    { src: "src/assets/Master Closet/Techinical Detail/View 04.png", caption: "TECHNICAL DETAIL 04 - Final construction and panel detailing" }
+                    { src: "src/assets/Master Closet/Techinical Detail/View 01.png", caption: "TECHNICAL DETAIL 01 - Section view of fixed shelf single hanging cabinet" },
+                    { src: "src/assets/Master Closet/Techinical Detail/View 02.png", caption: "TECHNICAL DETAIL 02 - Section view of 2 fixed shelf with double hanging cabinet" },
+                    { src: "src/assets/Master Closet/Techinical Detail/View 03.png", caption: "TECHNICAL DETAIL 03 - Section view of adjustable shelf with drawer cabinet" },
+                    { src: "src/assets/Master Closet/Techinical Detail/View 04.png", caption: "TECHNICAL DETAIL 04 - Section view of adjustable shelf cabinet" }
                 ],
                 viewImages: [
                     { src: "src/assets/Master Closet/Final Render/View 01.png", caption: "VIEW 01", subcaption: "Entrance perspective of the master closet" },
@@ -1305,7 +1309,8 @@
                 ],
                 coverImage: "src/assets/Master Closet/Final Render/Cover.png",
                 coverDrawing: "src/assets/Master Closet/Final Render/Cover.png",
-                coverRender: "src/assets/Master Closet/Final Render/View 09.png"
+                coverRender: "src/assets/Master Closet/Final Render/View 09.png",
+                renderHeading: "V-ray"
             },
             {
                 id: "project-03",
@@ -1313,27 +1318,23 @@
                 iconType: "restaurant",
                 title: "RESTAURANT & BAR",
                 category: "RESIDENTIAL MILLWORK",
-                coverOverview: "Comprehensive fitted wardrobe with integrated storage solutions and specialized compartments designed with frameless construction.",
+                coverOverview: "Designed a contemporary restaurant and bar with elegant interiors, functional layouts, and a welcoming atmosphere.",
                 overview: {
-                    description: "Full-height fitted wardrobe system utilizing frameless construction methodology. The design accommodates diverse storage needs through modular compartments.",
-                    projectType: "Wardrobe Cabinetry",
-                    location: "Bangalore, India",
-                    year: "2024",
-                    area: "12 Linear Meters",
-                    role: "Lead Designer & Team Coordinator",
-                    software: "Cabinet Vision / AutoCAD / V-Ray"
+                    description: "Designed a contemporary restaurant and bar space featuring a sophisticated interior concept, carefully planned seating arrangements, and functional service areas. The design combines elegant finishes, ambient lighting, and custom-built elements to create a welcoming atmosphere while ensuring efficient space utilization and a seamless dining experience.",
+                    projectType: "Bar cabinetry with wall paneling",
+                    software: "AutoCAD / SketchUp / D5 Render"
                 },
                 preliminaryDrawings: [
                     { src: "src/assets/Restaurent/Priliminary Drawings/View 01.jpeg", caption: "Initial bar layout and concept planning" },
                     { src: "src/assets/Restaurent/Priliminary Drawings/View 02.jpeg", caption: "Spatial organization and counter composition study" }
                 ],
                 shopDrawings: [
-                    { src: "src/assets/Restaurent/Shop Drawings/View 01.png", caption: "SHOP DRAWING 01 - Bar front elevation and section" },
-                    { src: "src/assets/Restaurent/Shop Drawings/View 02.png", caption: "SHOP DRAWING 02 - Counter and back wall layout" }
+                    { src: "src/assets/Restaurent/Shop Drawings/View 01.png", caption: "SHOP DRAWING 01 - Bar and Restaurant Plan View" },
+                    { src: "src/assets/Restaurent/Shop Drawings/View 02.png", caption: "SHOP DRAWING 02 - Bar and Restaurant Elevation View" }
                 ],
                 technicalDetails: [
-                    { src: "src/assets/Restaurent/Tech Drawing/Tech 01.png", caption: "TECHNICAL DETAIL 01 - Section and cabinet detailing" },
-                    { src: "src/assets/Restaurent/Tech Drawing/Tech 02.png", caption: "TECHNICAL DETAIL 02 - Assembly and support specification" }
+                    { src: "src/assets/Restaurent/Tech Drawing/Tech 01.png", caption: "TECHNICAL DETAIL 01 - Section view of Floating shelf with base door cabinet" },
+                    { src: "src/assets/Restaurent/Tech Drawing/Tech 02.png", caption: "TECHNICAL DETAIL 02 - Tall counter cabinet with base drawer cabinet" }
                 ],
                 viewImages: [
                     { src: "src/assets/Restaurent/Final Render/Scene 2 new.png", caption: "VIEW 01", subcaption: "Main bar counter perspective" },
@@ -1346,7 +1347,8 @@
                 ],
                 coverImage: "src/assets/Restaurent/Final Render/Cover.png",
                 coverDrawing: "src/assets/Restaurent/Final Render/Cover.png",
-                coverRender: "src/assets/Restaurent/Final Render/Image(1).png"
+                coverRender: "src/assets/Restaurent/Final Render/Image(1).png",
+                renderHeading: "D5-Render"
             },
         ];
 
@@ -1447,22 +1449,6 @@
                                     <div class="overview-value">${project.overview.projectType}</div>
                                 </div>
                                 <div class="overview-item reveal reveal-stagger-2">
-                                    <div class="overview-label">Location</div>
-                                    <div class="overview-value">${project.overview.location}</div>
-                                </div>
-                                <div class="overview-item reveal reveal-stagger-3">
-                                    <div class="overview-label">Year</div>
-                                    <div class="overview-value">${project.overview.year}</div>
-                                </div>
-                                <div class="overview-item reveal reveal-stagger-1">
-                                    <div class="overview-label">Area</div>
-                                    <div class="overview-value">${project.overview.area}</div>
-                                </div>
-                                <div class="overview-item reveal reveal-stagger-2">
-                                    <div class="overview-label">Role</div>
-                                    <div class="overview-value">${project.overview.role}</div>
-                                </div>
-                                <div class="overview-item reveal reveal-stagger-3">
                                     <div class="overview-label">Software</div>
                                     <div class="overview-value">${project.overview.software}</div>
                                 </div>
@@ -1517,7 +1503,7 @@
 
                     <div class="project-section">
                         <div class="project-section-container">
-                            <h3 class="section-heading reveal">RENDER IMAGES</h3>
+                            <h3 class="section-heading reveal">RENDER IMAGES (${project.renderHeading || 'V-Ray'})</h3>
                             <p class="section-subheading reveal reveal-stagger-1">PROJECT VISUALIZATION</p>
                             <div class="gallery-view">
                                 ${project.viewImages.map((img, i) => `
